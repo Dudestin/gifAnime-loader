@@ -2,6 +2,22 @@
 #include <fstream>
 using std::cout; using std::endl;
 
+struct GCTable{
+   char R[1];
+   char G[1];
+   char B[1];
+};
+
+struct Header{
+   char signature[6];
+   char version[6];
+   char l_scr_with[2];
+   char l_scr_height[2];
+   char bg_index[1];
+   char pix_aspect_ratio[1];
+   GCTable hoge[256];
+};
+
 int main(void){
    std::fstream file;
    char buf[16];
