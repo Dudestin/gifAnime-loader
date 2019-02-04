@@ -1,0 +1,26 @@
+#include <iostream>
+11;rgb:0000/0000/0000#include <fstream>
+using std::cout; using std::endl;
+
+int main(void){
+   std::fstream file;
+   char buf[16];
+
+   file.open("03.gif",std::ios::in|std::ios::binary);
+   if ( !file.is_open() ) {
+      cout <<  "file open error" << endl;
+      return 1;
+   }
+    
+   while( !file.eof() ) {
+      file.read(buf,sizeof(buf));
+        
+      for(int i=0,size=file.gcount();i<size;++i) {
+         cout << buf[i] << std::flush;
+      }
+   }
+    
+   file.close();
+    
+   return 0;
+}
